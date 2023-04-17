@@ -8,10 +8,10 @@ export const useCollection = (collection) => {
     useEffect(() => {
         let ref = projectFirestore.collection(collection)
 
-        const unsubscribe = ref.onSnapshot((snapshot) => {
+        const unsubscribe = ref.onSnapshot(snapshot => {
             let results = []
             snapshot.docs.forEach(doc => {
-                result.push({ ...doc.data(), id: doc.id })
+                results.push({ ...doc.data(), id: doc.id })
             })
 
             //update state
